@@ -1,13 +1,145 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.main-cont {
+  margin: 0 auto;
+  max-width: 1440px;
+  min-height: 750px;
+  background-color: aquamarine;
+}
+
+.nav {
+  width: 100%;
+  height: 70px;
+  background-color: #212121;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav__logo {
+  margin-left: 1.7rem;
+  background-color: darkmagenta;
+  display: flex;
+  align-items: center;
+}
+.my-contacts {
+  font-size: 2rem;
+  margin-left: 10px;
+}
+
+.nav__logo__img-cont {
+  width: 32px;
+  height: 32px;
+}
+.nav__logo__img-cont img {
+  max-width: 100%;
+  min-height: 100%;
+}
+
+.nav__link {
+  margin-right: 1.7rem;
+}
+
+.home-page {
+  background-color: rgb(122, 86, 86);
+  width: 100%;
+  min-height: 680px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.display {
+  background-color: chocolate;
+  width: 80%;
+  margin: 4rem;
+}
+
+.list-funcs {
+  background-color: cyan;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-funcs__search-cont__search {
+  width: 550px;
+  height: 40px;
+}
+@media (max-width: 950px) {
+  .list-funcs__search-cont__search {
+    width: 400px;
+  }
+}
+@media (max-width: 750px) {
+  .list-funcs__search-cont__search {
+    width: 300px;
+  }
+}
+@media (max-width: 620px) {
+  .list-funcs {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+@media (max-width: 380px) {
+  .list-funcs__search-cont__search {
+    width: 200px;
+  }
+}
+
+.btn {
+  width: 40px;
+  height: 40px;
+}
+.list-funcs__funcs-cont {
+  width: 160px;
+  background-color: darkmagenta;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list {
+  margin-top: 1rem;
+  background-color: darkblue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.contact-page {
+  background-color: rgb(90, 49, 49);
+  width: 100%;
+  min-height: 680px;
+  display: flex;
+}
+.contact-info {
+  width: 50%;
+  height: 420px;
+  background-color: darkgreen;
+  margin: 3rem;
+}
+.contact-info__img-cont {
+  width: 100%;
+  height: 140px;
+}
+.contact-info__text-info {
+  display: flex;
+}
+.text-info__col {
+  width: 50%;
+  height: 280px;
+  background-color: darkkhaki;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+.first-name {
+  width: 290px;
+  height: 40px;
 }
