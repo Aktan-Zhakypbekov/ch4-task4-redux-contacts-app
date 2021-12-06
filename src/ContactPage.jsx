@@ -1,16 +1,32 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useSelector, useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 const ContactForm = () => {
+  const dispatch = useDispatch();
+  const data = useSelector((state) => {
+    return state.dataReducer;
+  });
+  const navigate = useNavigate();
+
+  function saveContact(values) {
+    dispatch({ type: 'SAVE_CONTACT', payload: values });
+  }
+
+  const location = useLocation();
   const values = {
-    firstName: '',
-    city: '',
-    phoneNumber: '',
-    website: '',
-    lastName: '',
-    country: '',
-    email: '',
+    id: location.state.id,
+    firstName: location.state.firstName,
+    city: location.state.city,
+    phoneNumber: location.state.phoneNumber,
+    website: location.state.website,
+    lastName: location.state.lastName,
+    country: location.state.country,
+    email: location.state.email,
+    favorite: location.state.favorite,
   };
   const validate = Yup.object().shape({
     firstName: Yup.string()
@@ -41,7 +57,7 @@ const ContactForm = () => {
   return (
     <Formik initialValues={values} validationSchema={validate}>
       {(formik) => {
-        const { error, touched, dirty, isValid } = formik;
+        const { error, touched, dirty, isValid, values } = formik;
         return (
           <Form className='contact-info__contact-form'>
             <div className='contact-info__contact-form__column'>
@@ -152,6 +168,11 @@ const ContactForm = () => {
                 <button
                   className='contact-info__contact-form__column__field-cont save-contact-btn-cont__btn'
                   type='submit'
+                  onClick={(e) => {
+                    e.preventDefault();
+                    saveContact(values);
+                    navigate('/');
+                  }}
                 >
                   Save Contact
                 </button>

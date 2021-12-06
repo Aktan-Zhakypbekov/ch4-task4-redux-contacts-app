@@ -31,6 +31,7 @@ function dataReducer(state = [], action) {
   } else if (action.type === 'SORT_AZ') {
     let newArr = [...state];
     localStorage.setItem('data', JSON.stringify(newArr.sort(sortAZ)));
+    console.log(newArr);
     return newArr.sort(sortAZ);
   } else if (action.type === 'SORT_ZA') {
     let newArr = [...state];
@@ -41,6 +42,13 @@ function dataReducer(state = [], action) {
     newArr[newArr.findIndex((elem) => elem.id == action.payload)].favorite =
       !newArr[newArr.findIndex((elem) => elem.id == action.payload)].favorite;
     localStorage.setItem('data', JSON.stringify(newArr));
+    return newArr;
+  } else if (action.type === 'SAVE_CONTACT') {
+    let newArr = [...state];
+    newArr[newArr.findIndex((elem) => elem.id == action.payload.id)] =
+      action.payload;
+    localStorage.setItem('data', JSON.stringify(newArr));
+    console.log(newArr);
     return newArr;
   }
   return state;

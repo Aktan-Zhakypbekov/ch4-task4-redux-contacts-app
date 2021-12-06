@@ -1,9 +1,15 @@
 import React from 'react';
 import './ListItem.css';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
 
 const ListItem = (props) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  function toContactPage() {
+    navigate(`/${props.obj.id}`, { state: props.obj });
+  }
+
   function toggleHeart(id) {
     dispatch({ type: 'TOGGLE_HEART', payload: id });
   }
@@ -36,7 +42,7 @@ const ListItem = (props) => {
           <div className='info__small-details__email'>{props.obj.email}</div>
         </div>
         <div className='info__btn-cont'>
-          <button>Show</button>
+          <button onClick={toContactPage}>Show</button>
         </div>
       </div>
     </div>
