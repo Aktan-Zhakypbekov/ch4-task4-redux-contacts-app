@@ -11,6 +11,8 @@
   background-color: aquamarine;
 }
 
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
 .nav {
   width: 100%;
   height: 70px;
@@ -29,7 +31,6 @@
   font-size: 2rem;
   margin-left: 10px;
 }
-
 .nav__logo__img-cont {
   width: 32px;
   height: 32px;
@@ -38,10 +39,11 @@
   max-width: 100%;
   min-height: 100%;
 }
-
 .nav__link {
   margin-right: 1.7rem;
 }
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 .home-page {
   background-color: rgb(122, 86, 86);
@@ -111,6 +113,8 @@
   align-items: center;
 }
 
+/*////////////////////////////////////////////////////////////////////////////////////////////*/
+
 .contact-page {
   background-color: rgb(90, 49, 49);
   width: 100%;
@@ -118,28 +122,55 @@
   display: flex;
 }
 .contact-info {
+  background-color: cadetblue;
   width: 50%;
-  height: 420px;
-  background-color: darkgreen;
-  margin: 3rem;
+  height: 460px;
+  margin: 4rem;
 }
 .contact-info__img-cont {
   width: 100%;
   height: 140px;
+  background-color: cornflowerblue;
+  display: flex;
+  align-items: flex-start;
 }
-.contact-info__text-info {
+.contact-info__contact-form {
+  background-color: crimson;
+  width: 100%;
+  height: 320px;
   display: flex;
 }
-.text-info__col {
+
+.contact-info__contact-form__column {
+  background-color: rgb(59, 59, 151);
   width: 50%;
-  height: 280px;
-  background-color: darkkhaki;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.input-field {
+  width: 300px;
+  height: 30px;
+}
+.contact-info__contact-form__column__field-cont__inner {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  border: 1px solid red;
+  height: 70px;
 }
-.first-name {
-  width: 290px;
-  height: 40px;
+label {
+  height: 20px;
+  background-color: darkgreen;
+}
+.save-contact-btn-cont {
+  height: 70px;
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+}
+.save-contact-btn-cont__btn {
+  width: 300px;
+  height: 30px;
 }
