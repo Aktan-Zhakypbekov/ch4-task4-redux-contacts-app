@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ListItem.css';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
@@ -13,6 +13,7 @@ const ListItem = (props) => {
   function toggleHeart(id) {
     dispatch({ type: 'TOGGLE_HEART', payload: id });
   }
+
   return (
     <div className='list-item-cont'>
       <div className='list-item-cont__item-img'>
@@ -21,13 +22,39 @@ const ListItem = (props) => {
       <div className='list-item-cont__info'>
         <div className='info__name'>
           <div>{`${props.obj.firstName} ${props.obj.lastName}`}</div>
-          <button
-            onClick={() => {
-              toggleHeart(props.obj.id);
-            }}
-          >
-            HEART
-          </button>
+          {props.obj.favorite ? (
+            <button
+              className='favorite'
+              onClick={(e) => {
+                toggleHeart(props.obj.id);
+                if (props.obj.favorite) {
+                  e.target.classList.add('favorite');
+                  e.target.classList.remove('not-favorite');
+                } else {
+                  e.target.classList.add('not-favorite');
+                  e.target.classList.remove('favorite');
+                }
+              }}
+            >
+              HEART
+            </button>
+          ) : (
+            <button
+              className='not-favorite'
+              onClick={(e) => {
+                toggleHeart(props.obj.id);
+                if (props.obj.favorite) {
+                  e.target.classList.add('favorite');
+                  e.target.classList.remove('not-favorite');
+                } else {
+                  e.target.classList.add('not-favorite');
+                  e.target.classList.remove('favorite');
+                }
+              }}
+            >
+              HEART
+            </button>
+          )}
         </div>
         <div className='info__small-details'>
           <div className='info__small-details__adress'>

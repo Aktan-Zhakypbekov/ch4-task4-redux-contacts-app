@@ -11,6 +11,10 @@ function HomePage() {
     return state.heartToggled;
   });
 
+  const searchLaunched = useSelector((state) => {
+    return state.searchLaunched;
+  });
+
   useEffect(() => {
     fetch('https://my-json-server.typicode.com/RomanChasovitin/demo-api/users')
       .then((response) => response.json())
@@ -28,13 +32,39 @@ function HomePage() {
   function toggleHeart() {
     dispatch({ type: 'TOGGLE_HEART_MAIN' });
   }
+  function launchSearch(term) {
+    dispatch({ type: 'LAUNCH_SEARCH', payload: term });
+  }
+  function alertSearchLaunched() {
+    dispatch({ type: 'ALERT_SEARCH_LAUNCHED' });
+  }
+  function cleanAllSearchedData() {
+    dispatch({ type: 'CLEAN_ALL_SEARCHED_DATA' });
+  }
 
   return (
     <div className='home-page'>
       <div className='display'>
         <div className='list-funcs'>
           <div className='list-funcs__search-cont'>
-            <input type='text' className='list-funcs__search-cont__search' />
+            <form>
+              <input
+                type='text'
+                className='list-funcs__search-cont__search'
+                placeholder='Enter the full name of the contact'
+                required
+              />
+              <button
+                type='submit'
+                onClick={(e) => {
+                  e.preventDefault();
+                  launchSearch(e.target.parentElement.firstChild.value);
+                  alertSearchLaunched();
+                }}
+              >
+                Search
+              </button>
+            </form>
           </div>
           <div className='list-funcs__funcs-cont'>
             <button
@@ -60,7 +90,14 @@ function HomePage() {
           </div>
         </div>
         <div className='list'>
-          {!toggled
+          {searchLaunched
+            ? data.map((elem) => {
+                if (elem.searched) {
+                  //cleanAllSearchedData();
+                  return <ListItem obj={elem} key={elem.id} />;
+                }
+              })
+            : !toggled
             ? data.map((elem) => {
                 return <ListItem obj={elem} key={elem.id} />;
               })

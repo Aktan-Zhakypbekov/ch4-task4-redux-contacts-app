@@ -121,38 +121,48 @@
   min-height: 680px;
   display: flex;
 }
-.contact-info {
+.contact-info__contact-form {
   background-color: cadetblue;
   width: 50%;
   height: 460px;
   margin: 4rem;
 }
-.contact-info__img-cont {
+.contact-info__contact-form__contact-img-cont {
   width: 100%;
   height: 140px;
   background-color: cornflowerblue;
   display: flex;
   align-items: flex-start;
 }
-.contact-info__contact-form {
+.contact-info__contact-form__contact-img-cont__inner-cont {
+  width: 200px;
+  height: 60px;
+}
+.contact-info__contact-form__contact-img-cont__inner-cont img {
+  max-width: 100%;
+  min-height: 100%;
+}
+
+.contact-info__contact-form__columns-cont {
   background-color: crimson;
   width: 100%;
   height: 320px;
   display: flex;
 }
 
-.contact-info__contact-form__column {
+.contact-info__contact-form__columns-cont__column {
   background-color: rgb(59, 59, 151);
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
+
 .input-field {
   width: 300px;
   height: 30px;
 }
-.contact-info__contact-form__column__field-cont__inner {
+.contact-info__contact-form__columns-cont__column__field-cont__inner {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -173,4 +183,43 @@ label {
 .save-contact-btn-cont__btn {
   width: 300px;
   height: 30px;
+}
+
+.favorite {
+  background-color: red;
+}
+
+/*//////////////////////////////////////////////////////////*/
+
+[id='heart'] {
+  position: absolute;
+  left: -100vw;
+}
+
+[for='heart'] {
+  color: #aab8c2;
+  cursor: pointer;
+  font-size: 6em;
+  align-self: center;
+  transition: color 0.2s ease-in-out;
+}
+
+[for='heart']:hover {
+  color: grey;
+}
+
+[for='heart']::selection {
+  color: none;
+  background: transparent;
+}
+
+[for='heart']::moz-selection {
+  color: none;
+  background: transparent;
+}
+
+[id='heart']:checked + label {
+  color: #e2264d;
+  will-change: font-size;
+  animation: heart 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
 }

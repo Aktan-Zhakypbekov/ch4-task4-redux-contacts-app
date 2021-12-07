@@ -10,6 +10,15 @@ function sortAZ(a, b) {
   return 0;
 }
 
+function searchLaunched(state = false, action) {
+  if (action.type === 'ALERT_SEARCH_LAUNCHED') {
+    return true;
+  } else if (action.type === 'CLEAN_ALL_SEARCHED_DATA') {
+    return false;
+  }
+  return state;
+}
+
 function heartToggled(state = false, action) {
   if (action.type === 'TOGGLE_HEART_MAIN') {
     console.log(!state);
@@ -20,13 +29,18 @@ function heartToggled(state = false, action) {
 
 function dataReducer(state = [], action) {
   if (action.type === 'DATA_FETCH') {
-    let newArr = [...action.payload];
-    newArr = newArr.map((elem) => {
-      elem.favorite = false;
-      return elem;
-    });
-    localStorage.setItem('data', JSON.stringify(newArr));
-    state = JSON.parse(localStorage.getItem('data'));
+    if (JSON.parse(localStorage.getItem('data'))) {
+      state = JSON.parse(localStorage.getItem('data'));
+    } else {
+      let newArr = [...action.payload];
+      newArr = newArr.map((elem) => {
+        elem.favorite = false;
+        elem.searched = false;
+        return elem;
+      });
+      localStorage.setItem('data', JSON.stringify(newArr));
+      state = JSON.parse(localStorage.getItem('data'));
+    }
     return state;
   } else if (action.type === 'SORT_AZ') {
     let newArr = [...state];
@@ -45,10 +59,21 @@ function dataReducer(state = [], action) {
     return newArr;
   } else if (action.type === 'SAVE_CONTACT') {
     let newArr = [...state];
-    newArr[newArr.findIndex((elem) => elem.id == action.payload.id)] =
-      action.payload;
+    newArr[newArr.findIndex((elem) => elem.id == action.payload.id)] = {
+      ...action.payload,
+    };
     localStorage.setItem('data', JSON.stringify(newArr));
     console.log(newArr);
+    return newArr;
+  } else if (action.type === 'LAUNCH_SEARCH') {
+    let newArr = [...state];
+    newArr[
+      newArr.findIndex(
+        (elem) =>
+          `${elem.firstName} ${elem.lastName}`.toLowerCase() ==
+          action.payload.toLowerCase()
+      )
+    ].searched = true;
     return newArr;
   }
   return state;
@@ -56,6 +81,7 @@ function dataReducer(state = [], action) {
 const allReducers = combineReducers({
   heartToggled,
   dataReducer,
+  searchLaunched,
 });
 
 export default allReducers;
