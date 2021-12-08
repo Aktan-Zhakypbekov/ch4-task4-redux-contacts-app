@@ -23,6 +23,26 @@ function HomePage() {
       });
   }, []);
 
+  useEffect(() => {
+    /*document.querySelector('.like-button').addEventListener('click', (e) => {
+      e.currentTarget.classList.toggle('liked');
+    });*/
+    if (searchLaunched) {
+      let backBtn = document.createElement('button');
+      backBtn.className = 'back-btn';
+      backBtn.textContent = 'Back';
+      backBtn.addEventListener('click', (e) => {
+        cleanAllSearchedData();
+        cleanSearchedToFalse();
+      });
+      document.querySelector('.list-funcs__search-cont').appendChild(backBtn);
+    } else {
+      if (document.querySelector('.back-btn')) {
+        document.querySelector('.back-btn').remove();
+      }
+    }
+  }, [searchLaunched]);
+
   function sortAZ() {
     dispatch({ type: 'SORT_AZ' });
   }
@@ -41,40 +61,45 @@ function HomePage() {
   function cleanAllSearchedData() {
     dispatch({ type: 'CLEAN_ALL_SEARCHED_DATA' });
   }
+  function cleanSearchedToFalse() {
+    dispatch({ type: 'CLEAN_SEARCHED_TO_FALSE' });
+  }
 
   return (
     <div className='home-page'>
       <div className='display'>
         <div className='list-funcs'>
           <div className='list-funcs__search-cont'>
-            <form>
+            <form
+              className='search-form1'
+              onSubmit={(e) => {
+                e.preventDefault();
+                console.log(e.target.firstChild.value);
+                launchSearch(e.target.firstChild.value);
+                alertSearchLaunched();
+              }}
+            >
               <input
                 type='text'
                 className='list-funcs__search-cont__search'
                 placeholder='Enter the full name of the contact'
                 required
               />
-              <button
-                type='submit'
-                onClick={(e) => {
-                  e.preventDefault();
-                  launchSearch(e.target.parentElement.firstChild.value);
-                  alertSearchLaunched();
-                }}
-              >
+              <button type='submit' className='search-btn'>
                 Search
               </button>
             </form>
           </div>
           <div className='list-funcs__funcs-cont'>
             <button
-              className='list-funcs__funcs-cont__filter-favs btn'
+              className='list-funcs__funcs-cont__filter-favs like-button'
               onClick={() => {
                 toggleHeart();
               }}
             >
               Filter
             </button>
+
             <button
               className='list-funcs__funcs-cont__sort-a-z btn'
               onClick={sortAZ}
@@ -90,22 +115,28 @@ function HomePage() {
           </div>
         </div>
         <div className='list'>
-          {searchLaunched
-            ? data.map((elem) => {
+          {searchLaunched ? (
+            data.filter((elem) => elem.searched === true).length != 0 ? (
+              data.map((elem) => {
                 if (elem.searched) {
                   //cleanAllSearchedData();
                   return <ListItem obj={elem} key={elem.id} />;
                 }
               })
-            : !toggled
-            ? data.map((elem) => {
+            ) : (
+              <p>Not Found</p>
+            )
+          ) : !toggled ? (
+            data.map((elem) => {
+              return <ListItem obj={elem} key={elem.id} />;
+            })
+          ) : (
+            data.map((elem) => {
+              if (elem.favorite) {
                 return <ListItem obj={elem} key={elem.id} />;
-              })
-            : data.map((elem) => {
-                if (elem.favorite) {
-                  return <ListItem obj={elem} key={elem.id} />;
-                }
-              })}
+              }
+            })
+          )}
         </div>
       </div>
     </div>

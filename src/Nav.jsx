@@ -8,7 +8,7 @@ const Nav = () => {
         <div className='nav__logo__img-cont'>
           <img src='https://www.pngkey.com/png/full/87-873887_call-phone-icon-gray-png.png' />
         </div>
-        <div className='my-contacts'>My Contacts</div>
+        <div className='my-contacts'>MyContacts</div>
       </div>
       <Link className='nav__link' to='/'>
         HomePage

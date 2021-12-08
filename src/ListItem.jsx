@@ -24,7 +24,7 @@ const ListItem = (props) => {
           <div>{`${props.obj.firstName} ${props.obj.lastName}`}</div>
           {props.obj.favorite ? (
             <button
-              className='favorite'
+              className='favorite like-button2'
               onClick={(e) => {
                 toggleHeart(props.obj.id);
                 if (props.obj.favorite) {
@@ -40,7 +40,7 @@ const ListItem = (props) => {
             </button>
           ) : (
             <button
-              className='not-favorite'
+              className='not-favorite like-button2'
               onClick={(e) => {
                 toggleHeart(props.obj.id);
                 if (props.obj.favorite) {
@@ -69,7 +69,9 @@ const ListItem = (props) => {
           <div className='info__small-details__email'>{props.obj.email}</div>
         </div>
         <div className='info__btn-cont'>
-          <button onClick={toContactPage}>Show</button>
+          <button onClick={toContactPage} className='info__btn-cont__btn'>
+            Show
+          </button>
         </div>
       </div>
     </div>

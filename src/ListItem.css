@@ -2,28 +2,34 @@
   width: 250px;
   height: 303px;
   margin: 1rem;
+  background: #ffffff;
+  box-shadow: 2px 2px 5px rgba(33, 33, 33, 0.25);
+  border-radius: 4px;
 }
 .list-item-cont__item-img {
   width: 100%;
   height: 134px;
-  background-color: darkgoldenrod;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 .list-item-cont__item-img img {
   max-width: 100%;
   min-height: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 .list-item-cont__info {
   width: 100%;
   height: 169px;
-  background-color: darkgreen;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .info__name {
-  background-color: deeppink;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,15 +37,55 @@
   width: 92%;
 }
 .info__small-details {
-  background-color: deepskyblue;
   width: 92%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  font-size: 13px;
 }
 .info__btn-cont {
-  background-color: firebrick;
   width: 92%;
   display: flex;
   justify-content: flex-end;
 }
+.info__btn-cont__btn {
+  width: 92px;
+  height: 21px;
+  background: #212121;
+  border-radius: 2px;
+  color: white;
+  border: none;
+  font-size: 14px;
+}
+
+/*///////////////////////////////////////////////////////
+.like-button2 {
+  display: inline-block;
+  position: relative;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.like-button2::before {
+  font-size: 3em;
+  color: grey;
+  content: '❤';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.like-button2::after {
+  font-size: 3em;
+  color: #d32f2f;
+  content: '❤';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s;
+}
+.liked2::after {
+  transform: translate(-50%, -50%) scale(1.1);
+  color: red;
+}
+*/

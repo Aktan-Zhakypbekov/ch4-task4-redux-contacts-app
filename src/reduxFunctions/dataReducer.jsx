@@ -30,7 +30,9 @@ function heartToggled(state = false, action) {
 function dataReducer(state = [], action) {
   if (action.type === 'DATA_FETCH') {
     if (JSON.parse(localStorage.getItem('data'))) {
-      state = JSON.parse(localStorage.getItem('data'));
+      let newArr = JSON.parse(localStorage.getItem('data'));
+      newArr.map((elem) => (elem.searched = false));
+      state = [...newArr];
     } else {
       let newArr = [...action.payload];
       newArr = newArr.map((elem) => {
@@ -67,13 +69,27 @@ function dataReducer(state = [], action) {
     return newArr;
   } else if (action.type === 'LAUNCH_SEARCH') {
     let newArr = [...state];
-    newArr[
-      newArr.findIndex(
+    newArr.map((elem) => (elem.searched = false));
+    if (
+      newArr.filter(
         (elem) =>
           `${elem.firstName} ${elem.lastName}`.toLowerCase() ==
           action.payload.toLowerCase()
-      )
-    ].searched = true;
+      ).length != 0
+    ) {
+      console.log(action.payload);
+      newArr[
+        newArr.findIndex(
+          (elem) =>
+            `${elem.firstName} ${elem.lastName}`.toLowerCase() ==
+            action.payload.toLowerCase()
+        )
+      ].searched = true;
+    }
+    return newArr;
+  } else if (action.type === 'CLEAN_SEARCHED_TO_FALSE') {
+    let newArr = [...state];
+    newArr.map((elem) => (elem.searched = false));
     return newArr;
   }
   return state;
