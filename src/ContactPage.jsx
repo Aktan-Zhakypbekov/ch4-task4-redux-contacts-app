@@ -29,24 +29,30 @@ const ContactForm = () => {
   };
   const validate = Yup.object().shape({
     firstName: Yup.string()
-      .min(2, 'First name should be at least 2 characters or more')
+      .min(2, 'First name should be at least 2 characters')
       .max(30, 'First name cannot be longer than 30 characters')
       .matches(/^([^0-9]*)$/, 'First name should not contain numbers')
       .required('First name required'),
     city: Yup.string()
-      .min(2, 'City should be at least 2 characters or more')
+      .min(2, 'City should be at least 2 characters')
       .max(50, 'City cannot be longer than 50 characters')
       .matches(/^([^0-9]*)$/, 'City should not contain numbers')
       .required('City required'),
-    phoneNumber: Yup.string().required('Phone number required'),
-    website: Yup.string().required('Website required'),
+    phoneNumber: Yup.string()
+      .min(4, 'Phone number should be at least 4 characters')
+      .matches(/^[+]\d+/, 'It should be a phone number starting with +')
+      .required('Phone number required'),
+    website: Yup.string()
+      .min(5, 'Website should be at least 5 characters')
+      .matches(/^[^.]+[.][^.]+.*[^.]$/, 'Invalid website format')
+      .required('Website required'),
     lastName: Yup.string()
-      .min(2, 'Last name should be at least 2 characters or more')
+      .min(2, 'Last name should be at least 2 characters')
       .max(30, 'Lasst name cannot be longer than 30 characters')
       .matches(/^([^0-9]*)$/, 'Last name should not contain numbers')
       .required('Last name required'),
     country: Yup.string()
-      .min(2, 'Country should be at least 2 characters or more')
+      .min(2, 'Country should be at least 2 characters')
       .max(50, 'Country cannot be longer than 50 characters')
       .matches(/^([^0-9]*)$/, 'Country should not contain numbers')
       .required('Country required'),
@@ -75,7 +81,7 @@ const ContactForm = () => {
               <div className='contact-info__contact-form__contact-img-cont__inner-cont'>
                 <img src={values.image} alt='img' />
               </div>
-              <div>
+              <div className='heart-cont'>
                 <Field
                   id='heart'
                   name='favorite'
@@ -83,11 +89,6 @@ const ContactForm = () => {
                   type='checkbox'
                 />
                 <label htmlFor='heart'>❤</label>
-                <ErrorMessage
-                  name='favorite'
-                  component='div'
-                  className='error-msg'
-                />
               </div>
             </div>
             <div className='contact-info__contact-form__columns-cont'>

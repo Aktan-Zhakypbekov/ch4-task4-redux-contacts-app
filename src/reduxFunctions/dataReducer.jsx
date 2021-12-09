@@ -29,9 +29,8 @@ function heartToggled(state = false, action) {
 
 function dataReducer(state = [], action) {
   if (action.type === 'DATA_FETCH') {
-    if (JSON.parse(localStorage.getItem('data'))) {
+    if (JSON.parse(localStorage.getItem('data')).length != 0) {
       let newArr = JSON.parse(localStorage.getItem('data'));
-      newArr.map((elem) => (elem.searched = false));
       state = [...newArr];
     } else {
       let newArr = [...action.payload];
