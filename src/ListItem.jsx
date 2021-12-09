@@ -23,6 +23,86 @@ const ListItem = (props) => {
         <div className='info__name'>
           <div>{`${props.obj.firstName} ${props.obj.lastName}`}</div>
           {props.obj.favorite ? (
+            <div
+              className='lolo'
+              onClick={(e) => {
+                toggleHeart(props.obj.id);
+                if (props.obj.favorite) {
+                  e.target.classList.add('lolo');
+                  e.target.classList.remove('like-button2');
+                } else {
+                  e.target.classList.add('like-button2');
+                  e.target.classList.remove('lolo');
+                }
+              }}
+            ></div>
+          ) : (
+            <div
+              className='like-button2'
+              onClick={(e) => {
+                toggleHeart(props.obj.id);
+                if (props.obj.favorite) {
+                  e.target.classList.add('lolo');
+                  e.target.classList.remove('like-button2');
+                } else {
+                  e.target.classList.add('like-button2');
+                  e.target.classList.remove('lolo');
+                }
+              }}
+            ></div>
+          )}
+        </div>
+        <div className='info__small-details'>
+          <div className='info__small-details__adress'>
+            <div className='small-icon-cont'>
+              <img
+                src='https://image.similarpng.com/very-thumbnail/2021/01/Location-icon-design-on-transparent-background-PNG.png'
+                alt=''
+              />
+            </div>
+            <div>{`${props.obj.city}, ${props.obj.country}`}</div>
+          </div>
+          <div className='info__small-details__phone'>
+            <div className='small-icon-cont'>
+              <img
+                src='https://www.pngfind.com/pngs/m/66-666166_customer-service-telephone-numbers-svg-png-icon-free.png'
+                alt=''
+              />
+            </div>
+            <div>{props.obj.phoneNumber}</div>
+          </div>
+          <div className='info__small-details__website'>
+            <div className='small-icon-cont'>
+              <img
+                src='https://i.pinimg.com/736x/ea/b4/70/eab4700ec044e504ef73c3a6eb6b03e6.jpg'
+                alt=''
+              />
+            </div>
+            <div>{props.obj.website}</div>
+          </div>
+          <div className='info__small-details__email'>
+            <div className='small-icon-cont'>
+              <img
+                src='https://toppng.com/uploads/preview/email-icon-vector-circle-11549825158ieiklzfl8g.png'
+                alt=''
+              />
+            </div>
+            <div>{props.obj.email}</div>
+          </div>
+        </div>
+        <div className='info__btn-cont'>
+          <button onClick={toContactPage} className='info__btn-cont__btn'>
+            Show
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ListItem;
+
+/*{props.obj.favorite ? (
             <button
               className='favorite like-button2'
               onClick={(e) => {
@@ -54,28 +134,4 @@ const ListItem = (props) => {
             >
               HEART
             </button>
-          )}
-        </div>
-        <div className='info__small-details'>
-          <div className='info__small-details__adress'>
-            {`${props.obj.city}, ${props.obj.country}`}
-          </div>
-          <div className='info__small-details__phone'>
-            {props.obj.phoneNumber}
-          </div>
-          <div className='info__small-details__website'>
-            {props.obj.website}
-          </div>
-          <div className='info__small-details__email'>{props.obj.email}</div>
-        </div>
-        <div className='info__btn-cont'>
-          <button onClick={toContactPage} className='info__btn-cont__btn'>
-            Show
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default ListItem;
+          )}*/

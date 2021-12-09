@@ -91,14 +91,14 @@ function HomePage() {
             </form>
           </div>
           <div className='list-funcs__funcs-cont'>
-            <button
-              className='list-funcs__funcs-cont__filter-favs like-button'
-              onClick={() => {
-                toggleHeart();
-              }}
-            >
-              Filter
-            </button>
+            <div className='toggled-fav-cont'>
+              <div
+                className='list-funcs__funcs-cont__filter-favs filter-favs-btn toggled-fav'
+                onClick={(e) => {
+                  toggleHeart();
+                }}
+              ></div>
+            </div>
 
             <button
               className='list-funcs__funcs-cont__sort-a-z btn'
