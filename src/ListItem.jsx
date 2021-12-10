@@ -7,7 +7,7 @@ const ListItem = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   function toContactPage() {
-    navigate(`/item`, {
+    navigate(`/${props.obj.id}`, {
       state: props.obj,
     });
   }

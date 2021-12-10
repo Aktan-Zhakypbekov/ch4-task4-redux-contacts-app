@@ -1,20 +1,20 @@
 import React from 'react';
-import { BrowserRouter, HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './HomePage';
 import Nav from './Nav';
 import ContactPage from './ContactPage';
 
 function RouterSwitch() {
   return (
-    <div className='main-cont'>
-      <HashRouter>
+    <BrowserRouter>
+      <div className='main-cont'>
         <Nav />
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/item' element={<ContactPage />} />
+          <Route path='/:id' element={<ContactPage />} />
         </Routes>
-      </HashRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
