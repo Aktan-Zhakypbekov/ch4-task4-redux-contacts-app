@@ -24,29 +24,29 @@ const ListItem = (props) => {
           <div>{`${props.obj.firstName} ${props.obj.lastName}`}</div>
           {props.obj.favorite ? (
             <div
-              className='lolo'
+              className='favorite-btn'
               onClick={(e) => {
                 toggleHeart(props.obj.id);
                 if (props.obj.favorite) {
-                  e.target.classList.add('lolo');
-                  e.target.classList.remove('like-button2');
+                  e.target.classList.add('favorite-btn');
+                  e.target.classList.remove('not-favorite-btn');
                 } else {
-                  e.target.classList.add('like-button2');
-                  e.target.classList.remove('lolo');
+                  e.target.classList.add('not-favorite-btn');
+                  e.target.classList.remove('favorite-btn');
                 }
               }}
             ></div>
           ) : (
             <div
-              className='like-button2'
+              className='not-favorite-btn'
               onClick={(e) => {
                 toggleHeart(props.obj.id);
                 if (props.obj.favorite) {
-                  e.target.classList.add('lolo');
-                  e.target.classList.remove('like-button2');
+                  e.target.classList.add('favorite-btn');
+                  e.target.classList.remove('not-favorite-btn');
                 } else {
-                  e.target.classList.add('like-button2');
-                  e.target.classList.remove('lolo');
+                  e.target.classList.add('not-favorite-btn');
+                  e.target.classList.remove('favorite-btn');
                 }
               }}
             ></div>
@@ -101,37 +101,3 @@ const ListItem = (props) => {
 };
 
 export default ListItem;
-
-/*{props.obj.favorite ? (
-            <button
-              className='favorite like-button2'
-              onClick={(e) => {
-                toggleHeart(props.obj.id);
-                if (props.obj.favorite) {
-                  e.target.classList.add('favorite');
-                  e.target.classList.remove('not-favorite');
-                } else {
-                  e.target.classList.add('not-favorite');
-                  e.target.classList.remove('favorite');
-                }
-              }}
-            >
-              HEART
-            </button>
-          ) : (
-            <button
-              className='not-favorite like-button2'
-              onClick={(e) => {
-                toggleHeart(props.obj.id);
-                if (props.obj.favorite) {
-                  e.target.classList.add('favorite');
-                  e.target.classList.remove('not-favorite');
-                } else {
-                  e.target.classList.add('not-favorite');
-                  e.target.classList.remove('favorite');
-                }
-              }}
-            >
-              HEART
-            </button>
-          )}*/

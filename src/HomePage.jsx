@@ -93,9 +93,16 @@ function HomePage() {
           <div className='list-funcs__funcs-cont'>
             <div className='toggled-fav-cont'>
               <div
-                className='list-funcs__funcs-cont__filter-favs filter-favs-btn toggled-fav'
+                className='list-funcs__funcs-cont__filter-favs toggled-fav'
                 onClick={(e) => {
                   toggleHeart();
+                  if (!toggled) {
+                    e.target.classList.remove('toggled-fav');
+                    e.target.classList.add('toggled-fav-red');
+                  } else {
+                    e.target.classList.remove('toggled-fav-red');
+                    e.target.classList.add('toggled-fav');
+                  }
                 }}
               ></div>
             </div>

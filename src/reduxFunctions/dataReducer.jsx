@@ -21,7 +21,6 @@ function searchLaunched(state = false, action) {
 
 function heartToggled(state = false, action) {
   if (action.type === 'TOGGLE_HEART_MAIN') {
-    console.log(!state);
     return !state;
   }
   return state;
@@ -46,7 +45,6 @@ function dataReducer(state = [], action) {
   } else if (action.type === 'SORT_AZ') {
     let newArr = [...state];
     localStorage.setItem('data', JSON.stringify(newArr.sort(sortAZ)));
-    console.log(newArr);
     return newArr.sort(sortAZ);
   } else if (action.type === 'SORT_ZA') {
     let newArr = [...state];
@@ -64,7 +62,6 @@ function dataReducer(state = [], action) {
       ...action.payload,
     };
     localStorage.setItem('data', JSON.stringify(newArr));
-    console.log(newArr);
     return newArr;
   } else if (action.type === 'LAUNCH_SEARCH') {
     let newArr = [...state];
@@ -76,7 +73,6 @@ function dataReducer(state = [], action) {
           action.payload.toLowerCase()
       ).length != 0
     ) {
-      console.log(action.payload);
       newArr[
         newArr.findIndex(
           (elem) =>

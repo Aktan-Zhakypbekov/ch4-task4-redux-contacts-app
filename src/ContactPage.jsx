@@ -57,7 +57,6 @@ const ContactForm = () => {
       .matches(/^([^0-9]*)$/, 'Country should not contain numbers')
       .required('Country required'),
     email: Yup.string().email('Wrong email format').required('Email required'),
-    favorite: Yup.string().required('required'),
   });
 
   return (
@@ -65,7 +64,6 @@ const ContactForm = () => {
       initialValues={contactInfo}
       validationSchema={validate}
       onSubmit={(values) => {
-        alert('hello');
         saveContact(values);
         navigate('/');
       }}

@@ -86,14 +86,14 @@
 .heart-cont-small {
 }
 
-.like-button2 {
+.not-favorite-btn {
   background-color: silver;
   height: 9px;
   width: 10px;
   transform: rotate(-45deg);
   margin-right: 0.4rem;
 }
-.like-button2:after {
+.not-favorite-btn:after {
   background-color: silver;
   content: '';
   border-radius: 50%;
@@ -103,7 +103,7 @@
   top: 0px;
   left: 6px;
 }
-.like-button2:before {
+.not-favorite-btn:before {
   background-color: silver;
   content: '';
   border-radius: 50%;
@@ -114,15 +114,15 @@
   left: 0px;
 }
 
-.lolo {
-  background-color: red;
+.favorite-btn {
+  background-color: #d32f2f;
   height: 9px;
   width: 10px;
   transform: rotate(-45deg);
   margin-right: 0.4rem;
 }
-.lolo:after {
-  background-color: red;
+.favorite-btn:after {
+  background-color: #d32f2f;
   content: '';
   border-radius: 50%;
   position: absolute;
@@ -131,8 +131,8 @@
   top: 0px;
   left: 6px;
 }
-.lolo:before {
-  background-color: red;
+.favorite-btn:before {
+  background-color: #d32f2f;
   content: '';
   border-radius: 50%;
   position: absolute;
