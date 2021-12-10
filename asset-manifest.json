@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ch4-task4-redux-contacts-app/static/css/main.9f5afe06.chunk.css",
-    "main.js": "/ch4-task4-redux-contacts-app/static/js/main.636ec11c.chunk.js",
-    "main.js.map": "/ch4-task4-redux-contacts-app/static/js/main.636ec11c.chunk.js.map",
+    "main.js": "/ch4-task4-redux-contacts-app/static/js/main.629ef427.chunk.js",
+    "main.js.map": "/ch4-task4-redux-contacts-app/static/js/main.629ef427.chunk.js.map",
     "runtime-main.js": "/ch4-task4-redux-contacts-app/static/js/runtime-main.ec6a0f9a.js",
     "runtime-main.js.map": "/ch4-task4-redux-contacts-app/static/js/runtime-main.ec6a0f9a.js.map",
     "static/js/2.dc4e409c.chunk.js": "/ch4-task4-redux-contacts-app/static/js/2.dc4e409c.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.ec6a0f9a.js",
     "static/js/2.dc4e409c.chunk.js",
     "static/css/main.9f5afe06.chunk.css",
-    "static/js/main.636ec11c.chunk.js"
+    "static/js/main.629ef427.chunk.js"
   ]
 }
