@@ -65,9 +65,7 @@ const ContactForm = () => {
       validationSchema={validate}
       onSubmit={(values) => {
         saveContact(values);
-        navigate(
-          'https://aktan-zhakypbekov.github.io/ch4-task4-redux-contacts-app/'
-        );
+        navigate('/');
       }}
     >
       {(formik) => {
