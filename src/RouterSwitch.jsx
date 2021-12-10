@@ -6,15 +6,15 @@ import ContactPage from './ContactPage';
 
 function RouterSwitch() {
   return (
-    <BrowserRouter>
-      <div className='main-cont'>
+    <div className='main-cont'>
+      <BrowserRouter>
         <Nav />
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/:id' element={<ContactPage />} />
         </Routes>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </div>
   );
 }
 
