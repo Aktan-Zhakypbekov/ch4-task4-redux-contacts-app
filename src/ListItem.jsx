@@ -7,9 +7,12 @@ const ListItem = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   function toContactPage() {
-    navigate(`ch4-task4-redux-contacts-app/mainpage/${props.obj.id}`, {
-      state: props.obj,
-    });
+    navigate(
+      `https://aktan-zhakypbekov.github.io/ch4-task4-redux-contacts-app/${props.obj.id}`,
+      {
+        state: props.obj,
+      }
+    );
   }
 
   function toggleHeart(id) {
