@@ -10,10 +10,7 @@ function RouterSwitch() {
       <div className='main-cont'>
         <Nav />
         <Routes>
-          <Route
-            path='https://aktan-zhakypbekov.github.io/ch4-task4-redux-contacts-app/'
-            element={<HomePage />}
-          />
+          <Route path='/' element={<HomePage />} />
           <Route
             path='https://aktan-zhakypbekov.github.io/ch4-task4-redux-contacts-app/:id'
             element={<ContactPage />}
