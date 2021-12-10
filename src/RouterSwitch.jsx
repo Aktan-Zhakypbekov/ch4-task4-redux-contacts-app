@@ -11,7 +11,7 @@ function RouterSwitch() {
         <Nav />
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/:id' element={<ContactPage />} />
+          <Route path='/mainpage/:id' element={<ContactPage />} />
         </Routes>
       </div>
     </BrowserRouter>

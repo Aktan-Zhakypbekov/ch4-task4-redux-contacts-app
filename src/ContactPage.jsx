@@ -2,8 +2,8 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -13,8 +13,8 @@ const ContactForm = () => {
     dispatch({ type: 'SAVE_CONTACT', payload: values });
   }
 
-  const location = useLocation();
-  const contactInfo = {
+  let location = useLocation();
+  let contactInfo = {
     id: location.state.id,
     firstName: location.state.firstName,
     city: location.state.city,

@@ -24,9 +24,6 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
-    /*document.querySelector('.like-button').addEventListener('click', (e) => {
-      e.currentTarget.classList.toggle('liked');
-    });*/
     if (searchLaunched) {
       let backBtn = document.createElement('button');
       backBtn.className = 'back-btn';
