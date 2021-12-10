@@ -29,7 +29,7 @@ function heartToggled(state = false, action) {
 function dataReducer(state = [], action) {
   if (action.type === 'DATA_FETCH') {
     if (
-      JSON.parse(localStorage.getItem('data')).length &&
+      JSON.parse(localStorage.getItem('data')) &&
       JSON.parse(localStorage.getItem('data')).length != 0
     ) {
       let newArr = JSON.parse(localStorage.getItem('data'));
